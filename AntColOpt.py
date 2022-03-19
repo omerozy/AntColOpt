@@ -89,7 +89,6 @@ for stepIdx in range(numStep):
         # Initialize ant location
         initPoint = random.choice(coordPoint) # Select initial point
         initIdx = coordPoint.index(initPoint) # Get the index of initial point
-        print(initPoint)
         currPoint = initPoint
         currIdx = initIdx
         # Assign initial location into array for storing
@@ -133,18 +132,13 @@ for stepIdx in range(numStep):
             targetIdx = antTravel[i][j+1]
             pheMat[startIdx][targetIdx] += 1/antDist[i]
     antStepHist.append((antTravel, antDist))
-    #print(antDist)
-    #print(pathPheScore)
-    #print(distMat)
-    #print(pheMat)
 
 # Get minimum distance path
 minDist = min(minDistHist)
 minDistStepIdx = minDistHist.index(minDist)
 minDistAntIdx = antStepHist[minDistStepIdx][1].index(minDist)
 minDistPathIdx = antStepHist[minDistStepIdx][0][minDistAntIdx]
-print(minDist)
-print(antStepHist[minDistStepIdx][1][minDistAntIdx])
+
 # Plot minimum distance travel route
 plt.xlim(0, xWidth)
 plt.ylim(0, yWidth)
